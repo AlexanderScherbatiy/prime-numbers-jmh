@@ -28,7 +28,6 @@ public class SieveOfEratosthenesTest {
 
         @Override
         public boolean consumeNextPrimeNumber(long primeNumber) {
-            System.out.printf("consumeNextPrimeNumber[%d]: %d%n", index, primeNumber);
             Assertions.assertEquals(GOLDEN_PRIME_NUMBERS[index++], primeNumber);
             return index != amount;
         }

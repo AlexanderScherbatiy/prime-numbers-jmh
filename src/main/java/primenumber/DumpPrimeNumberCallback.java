@@ -10,7 +10,7 @@ public class DumpPrimeNumberCallback implements PrimeNumberCallback {
 
     @Override
     public boolean consumeNextPrimeNumber(long primeNumber) {
-        System.out.printf("consumeNextPrimeNumber[%d]: %d%n", ++index, primeNumber);
+        System.out.printf("prime number[%d]: %d%n", ++index, primeNumber);
         return index != amount;
     }
 }

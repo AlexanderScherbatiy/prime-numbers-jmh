@@ -4,26 +4,26 @@ import primenumber.PrimeNumberCallback;
 
 public class SieveOfEratosthenes {
 
-    private final int size;
+    private final int sieveSize;
     private final boolean[] array;
 
-    public SieveOfEratosthenes(int size) {
-        this.size = size;
-        this.array = new boolean[size];
+    public SieveOfEratosthenes(int sieveSize) {
+        this.sieveSize = sieveSize;
+        this.array = new boolean[sieveSize];
     }
 
     public void findPrimeNumbers(PrimeNumberCallback callback) {
 
         int startIndex = 2;
 
-        while (startIndex < size) {
+        while (startIndex < sieveSize) {
             if (!array[startIndex]) {
                 if (!callback.consumeNextPrimeNumber(startIndex)) {
                     return;
                 }
 
                 int index = startIndex;
-                while (index < size) {
+                while (index < sieveSize) {
                     array[index] = true;
                     index += startIndex;
                 }
