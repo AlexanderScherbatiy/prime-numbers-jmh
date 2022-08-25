@@ -1,0 +1,25 @@
+plugins {
+    id 'application'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.8.2'
+    implementation 'com.google.guava:guava:31.0.1-jre'
+}
+
+application {
+    mainClassName = 'sample.PrimeNumberSample'
+}
+
+jar {
+    manifest {
+        attributes 'Main-Class': 'sample.PrimeNumberSample'
+    }
+}
+tasks.named('test') {
+    useJUnitPlatform()
+}
