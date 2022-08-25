@@ -23,10 +23,10 @@ public class SieveOfEratosthenes {
                 }
 
                 int index = startIndex;
-                while (index < sieveSize) {
+                do {
                     mark[index] = true;
                     index += startIndex;
-                }
+                } while (index < sieveSize);
             }
             startIndex++;
         }
