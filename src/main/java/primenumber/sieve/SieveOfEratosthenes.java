@@ -5,11 +5,11 @@ import primenumber.PrimeNumberCallback;
 public class SieveOfEratosthenes {
 
     private final int sieveSize;
-    private final boolean[] array;
+    private final boolean[] mark;
 
     public SieveOfEratosthenes(int sieveSize) {
         this.sieveSize = sieveSize;
-        this.array = new boolean[sieveSize];
+        this.mark = new boolean[sieveSize];
     }
 
     public void findPrimeNumbers(PrimeNumberCallback callback) {
@@ -17,14 +17,14 @@ public class SieveOfEratosthenes {
         int startIndex = 2;
 
         while (startIndex < sieveSize) {
-            if (!array[startIndex]) {
+            if (!mark[startIndex]) {
                 if (!callback.consumeNextPrimeNumber(startIndex)) {
                     return;
                 }
 
                 int index = startIndex;
                 while (index < sieveSize) {
-                    array[index] = true;
+                    mark[index] = true;
                     index += startIndex;
                 }
             }
