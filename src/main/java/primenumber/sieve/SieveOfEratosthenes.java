@@ -26,7 +26,7 @@ public class SieveOfEratosthenes {
                 do {
                     mark[index] = true;
                     index += startIndex;
-                } while (index < sieveSize);
+                } while (index < sieveSize && index > 0);
             }
             startIndex++;
         }
