@@ -1,8 +1,6 @@
 package primenumber.sieve;
 
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import primenumber.PrimeNumberCallback;
 
 public class SieveOfEratosthenesTest {
 
@@ -12,28 +10,8 @@ public class SieveOfEratosthenesTest {
     public void test() {
 
         int amount = GOLDEN_PRIME_NUMBERS.length;
-        PrimeNumberCallbackImpl callback = new PrimeNumberCallbackImpl(amount);
+        CheckPrimeNumbersCallback callback = new CheckPrimeNumbersCallback(GOLDEN_PRIME_NUMBERS);
         new SieveOfEratosthenes((int) GOLDEN_PRIME_NUMBERS[amount - 1] + 1).findPrimeNumbers(callback);
         callback.checkAllConsumed();
-    }
-
-    private static class PrimeNumberCallbackImpl implements PrimeNumberCallback {
-
-        final int amount;
-        int index;
-
-        PrimeNumberCallbackImpl(int amount) {
-            this.amount = amount;
-        }
-
-        @Override
-        public boolean consumeNextPrimeNumber(long primeNumber) {
-            Assertions.assertEquals(GOLDEN_PRIME_NUMBERS[index++], primeNumber);
-            return index != amount;
-        }
-
-        public void checkAllConsumed() {
-            Assertions.assertEquals(amount, index);
-        }
     }
 }
